@@ -12,6 +12,7 @@ namespace ConsoleApplication
 
             //Current date
             DateTime date = DateTime.Now;
+            //DateTime date = new DateTime(2020, 12, 24);
             int thisYear = date.Year;
             int thisMonth = date.Month;
             int today = date.Day;
@@ -19,6 +20,11 @@ namespace ConsoleApplication
 
             //Number of days until Christmas
             DateTime xmas = new DateTime(date.Year, 12, 25);
+
+            if (date > xmas)
+            {
+                xmas = new DateTime(date.Year + 1, 12, 25);
+            }
             double totalDaysUntilXmas = Math.Round((xmas - date).TotalDays);
             Console.WriteLine($"It is only {totalDaysUntilXmas} until Christmas!");
 
