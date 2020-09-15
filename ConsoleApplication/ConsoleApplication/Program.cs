@@ -12,7 +12,7 @@ namespace ConsoleApplication
 
             //Current date
             DateTime date = DateTime.Now;
-            //DateTime date = new DateTime(2020, 12, 24);
+            //DateTime date = new DateTime(2020, 12, 27);
             int thisYear = date.Year;
             int thisMonth = date.Month;
             int today = date.Day;
