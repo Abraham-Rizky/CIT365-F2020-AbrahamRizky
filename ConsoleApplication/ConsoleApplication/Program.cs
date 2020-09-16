@@ -6,19 +6,26 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            string name = "Rizky";
-            string location = "Indonesia";
+            //Name and location assignment
+            Console.Write("What is your name? ");
+            string name = Console.ReadLine();
+            Console.Write("Where are you from? ");
+            string location = Console.ReadLine();
             Console.WriteLine($"My name is {name}, I am from {location}.");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
 
-            //Current date
+            //Current date assignment
             DateTime date = DateTime.Now;
             //DateTime date = new DateTime(2020, 12, 27);
             int thisYear = date.Year;
             int thisMonth = date.Month;
             int today = date.Day;
-            Console.WriteLine($"The current date is {thisMonth}-{today}-{thisYear}");
+            Console.WriteLine($"\nThe current date is {thisMonth}-{today}-{thisYear}");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
 
-            //Number of days until Christmas
+            //Number of days until Christmas assignment
             DateTime xmas = new DateTime(date.Year, 12, 25);
 
             if (date > xmas)
@@ -26,12 +33,14 @@ namespace ConsoleApplication
                 xmas = new DateTime(date.Year + 1, 12, 25);
             }
             double totalDaysUntilXmas = Math.Round((xmas - date).TotalDays);
-            Console.WriteLine($"It is only {totalDaysUntilXmas} until Christmas!");
+            Console.WriteLine($"\nIt is only {totalDaysUntilXmas} until Christmas!");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
 
-            //Section 2.1 from the book
+            //Section 2.1 from the book assignment
             double width, height, woodLength, glassArea;
             string widthString, heightString;
-            Console.WriteLine("Please enter the width:");
+            Console.WriteLine("\nPlease enter the width:");
             widthString = Console.ReadLine();
             width = double.Parse(widthString);
             Console.WriteLine("Please enter the height:");
