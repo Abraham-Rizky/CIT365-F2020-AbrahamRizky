@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Reflection;
+using System.IO;
+using System.Resources;
+using System.Media;
+using System.Diagnostics;
+
 namespace MathQuiz
 {
     public partial class Form1 : Form
@@ -110,6 +116,9 @@ namespace MathQuiz
         public Form1()
         {
             InitializeComponent();
+
+            // Display current date
+            currentDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -175,6 +184,37 @@ namespace MathQuiz
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
+        }
+
+        private SoundPlayer _soundPlayer;
+
+        private void playSound(bool status)
+        {
+            if (status == true)
+            {
+                //Console.Beep();
+                _soundPlayer = new SoundPlayer("correct.wav");
+                _soundPlayer.Play();
+            }
+        }
+        private void sum_ValueChanged(object sender, EventArgs e)
+        {
+            playSound(addend1 + addend2 == sum.Value);
+        }
+
+        private void difference_ValueChanged_1(object sender, EventArgs e)
+        {
+            playSound(minuend - subtrahend == difference.Value);
+        }
+
+        private void product_ValueChanged_1(object sender, EventArgs e)
+        {
+            playSound(multiplicand * multiplier == product.Value);
+        }
+
+        private void quotient_ValueChanged_1(object sender, EventArgs e)
+        {
+            playSound(dividend / divisor == quotient.Value);
         }
     }
 }
