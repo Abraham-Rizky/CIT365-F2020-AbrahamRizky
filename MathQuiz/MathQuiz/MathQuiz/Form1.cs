@@ -129,6 +129,7 @@ namespace MathQuiz
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
+            Console.Beep();
             startButton.Enabled = false;
         }
 
@@ -140,9 +141,12 @@ namespace MathQuiz
                 // got the answer right. Stop the timer  
                 // and show a MessageBox.
                 timer1.Stop();
+                _soundPlayer = new SoundPlayer("ovation.wav");
+                _soundPlayer.Play();
                 MessageBox.Show("You got all the answers right!",
                                 "Congratulations!");
                 startButton.Enabled = true;
+                _soundPlayer.Stop();
             }
             else if (timeLeft > 0)
             {
@@ -156,6 +160,7 @@ namespace MathQuiz
                 if (timeLeft < 6)
                 {
                     timeLabel.BackColor = Color.Red;
+                    Console.Beep();
                 }
             }
             else
@@ -163,6 +168,8 @@ namespace MathQuiz
                 // If the user ran out of time, stop the timer, show 
                 // a MessageBox, and fill in the answers.
                 timer1.Stop();
+                _soundPlayer = new SoundPlayer("failure.wav");
+                _soundPlayer.Play();
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry");
                 sum.Value = addend1 + addend2;
@@ -195,8 +202,10 @@ namespace MathQuiz
                 //Console.Beep();
                 _soundPlayer = new SoundPlayer("correct.wav");
                 _soundPlayer.Play();
+
             }
-        }
+         }
+
         private void sum_ValueChanged(object sender, EventArgs e)
         {
             playSound(addend1 + addend2 == sum.Value);
