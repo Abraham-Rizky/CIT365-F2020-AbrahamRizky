@@ -130,6 +130,7 @@ namespace MathQuiz
         {
             StartTheQuiz();
             Console.Beep();
+            timeLabel.BackColor = default;
             startButton.Enabled = false;
         }
 
