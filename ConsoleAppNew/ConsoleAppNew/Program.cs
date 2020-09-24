@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleApplication
+namespace ConsoleAppNew
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Name and location assignment
+            //Name and location assignment
             Console.Write("What is your name? ");
             string name = Console.ReadLine();
             Console.Write("Where are you from? ");
@@ -25,7 +29,7 @@ namespace ConsoleApplication
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
 
-            // Number of days until Christmas assignment
+            //Number of days until Christmas assignment
             DateTime xmas = new DateTime(date.Year, 12, 25);
 
             if (date > xmas)
@@ -37,7 +41,7 @@ namespace ConsoleApplication
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
 
-            // Section 2.1 from the book assignment
+            //Section 2.1 from the book assignment
             double width, height, woodLength, glassArea;
             string widthString, heightString;
             Console.WriteLine("\nPlease enter the width:");
@@ -52,8 +56,6 @@ namespace ConsoleApplication
             Console.WriteLine("The area of the glass is " + glassArea + " square metres");
             Console.WriteLine("Press any key to exit the program");
             Console.ReadKey();
-
-            //Need to be done on .NET framework instead
         }
     }
 }
