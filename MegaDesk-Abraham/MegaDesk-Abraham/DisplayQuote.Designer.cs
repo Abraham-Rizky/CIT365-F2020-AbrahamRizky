@@ -33,6 +33,7 @@
             // 
             // returnToMainMenu
             // 
+            this.returnToMainMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnToMainMenu.Location = new System.Drawing.Point(605, 395);
             this.returnToMainMenu.Name = "returnToMainMenu";
             this.returnToMainMenu.Size = new System.Drawing.Size(183, 43);

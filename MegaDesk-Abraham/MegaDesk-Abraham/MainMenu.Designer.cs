@@ -38,6 +38,11 @@
             // 
             // addNewQuote
             // 
+            this.addNewQuote.FlatAppearance.BorderSize = 2;
+            this.addNewQuote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.addNewQuote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addNewQuote.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewQuote.ForeColor = System.Drawing.Color.White;
             this.addNewQuote.Location = new System.Drawing.Point(34, 27);
             this.addNewQuote.Name = "addNewQuote";
             this.addNewQuote.Size = new System.Drawing.Size(148, 47);
@@ -48,6 +53,11 @@
             // 
             // viewQuote
             // 
+            this.viewQuote.FlatAppearance.BorderSize = 2;
+            this.viewQuote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.viewQuote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewQuote.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewQuote.ForeColor = System.Drawing.Color.White;
             this.viewQuote.Location = new System.Drawing.Point(34, 81);
             this.viewQuote.Name = "viewQuote";
             this.viewQuote.Size = new System.Drawing.Size(148, 47);
@@ -58,6 +68,11 @@
             // 
             // searchQuotes
             // 
+            this.searchQuotes.FlatAppearance.BorderSize = 2;
+            this.searchQuotes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.searchQuotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchQuotes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchQuotes.ForeColor = System.Drawing.Color.White;
             this.searchQuotes.Location = new System.Drawing.Point(34, 134);
             this.searchQuotes.Name = "searchQuotes";
             this.searchQuotes.Size = new System.Drawing.Size(148, 47);
@@ -68,6 +83,11 @@
             // 
             // exitButton
             // 
+            this.exitButton.FlatAppearance.BorderSize = 2;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.Color.White;
             this.exitButton.Location = new System.Drawing.Point(34, 189);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(148, 47);
@@ -90,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(494, 270);
             this.Controls.Add(this.deskPicture);
             this.Controls.Add(this.exitButton);
