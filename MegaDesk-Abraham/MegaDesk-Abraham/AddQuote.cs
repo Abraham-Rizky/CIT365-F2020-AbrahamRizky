@@ -279,11 +279,12 @@ namespace MegaDesk_Abraham
                 desk.NumberOfDrawers = Convert.ToInt32(drawerBox.Text);
                 desk.SurfaceMaterial = (DesktopMaterial)materialBox.SelectedIndex - 1;
                 desk.CustomerName = customerNameBox.Text;
-                desk.ShippingCost = quote.CalcShipping(Convert.ToInt32(shippingBox.SelectedIndex));
+                desk.ShippingCost = quote.CalcShipping(Convert.ToInt32(shippingBox.SelectedIndex), desk.Width, desk.Depth);
                 desk.Date = quote.ShowDate();
                 desk.OversizeCost = quote.CalcOversizeCost(desk.Width, desk.Depth);
                 desk.DrawerCost = quote.CalcDrawerCost(desk.NumberOfDrawers);
                 desk.MaterialCost = quote.CalcMaterialCost(Convert.ToInt32(materialBox.SelectedIndex));
+                desk.Area = desk.Width * desk.Depth;
 
                 DisplayQuote openDisplayQuote = new DisplayQuote(desk);
                 openDisplayQuote.Tag = this;

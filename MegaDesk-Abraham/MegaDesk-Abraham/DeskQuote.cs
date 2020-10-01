@@ -16,7 +16,7 @@ namespace MegaDesk_Abraham
         public decimal shippingCost;
         public decimal totalPrice;
         public const decimal BASE_PRICE = 200.00M;
-        public const decimal DRAWER_RATE = 50.00M;
+        public const int DRAWER_RATE = 50;
         public Desk desk { get; set; }
         public string CustomerName { get; set; }
         public DateTime Date { get; set; }
@@ -39,10 +39,10 @@ namespace MegaDesk_Abraham
             }
         }
 
-        public decimal CalcDrawerCost( int count)
+        public decimal CalcDrawerCost( int numberOfDrawers)
         {
             Desk desk = new Desk();
-            drawerCost = count * DRAWER_RATE;
+            drawerCost = numberOfDrawers * DRAWER_RATE;
             desk.DrawerCost = drawerCost;
             return desk.DrawerCost;
         }
@@ -74,33 +74,32 @@ namespace MegaDesk_Abraham
 
         }
 
-        public decimal CalcShipping(int index)
+        public decimal CalcShipping(int index, decimal width, decimal depth)
         {
             Desk desk = new Desk();
-            int width = desk.Width;
-            int depth = desk.Depth;
             area = width * depth;
+            desk.Area = area;
             if (index == 0)
             {
                 shippingCost = 0;
-                return shippingCost;
+                return desk.ShippingCost;
             }
             else if (index == 1)
             {
                 if(area < 1000)
                 {
                     shippingCost = 60;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
                 else if (area > 1000 && area < 2000)
                 {
                     shippingCost = 70;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
                 else
                 {
                     shippingCost = 80;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
             }
             else if( index == 2)
@@ -108,17 +107,17 @@ namespace MegaDesk_Abraham
                 if (area < 1000)
                 {
                     shippingCost = 40;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
                 else if (area > 1000 && area < 2000)
                 {
                     shippingCost = 50;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
                 else
                 {
                     shippingCost = 60;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
             }
             else if(index == 3)
@@ -126,22 +125,22 @@ namespace MegaDesk_Abraham
                 if (area < 1000)
                 {
                     shippingCost = 30;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
                 else if (area > 1000 && area < 2000)
                 {
                     shippingCost = 35;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
                 else
                 {
                     shippingCost = 40;
-                    return shippingCost;
+                    return desk.ShippingCost = shippingCost;
                 }
             } else
             {
                 shippingCost = 0;
-                return shippingCost;
+                return desk.ShippingCost = shippingCost;
             }
         }
 

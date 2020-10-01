@@ -273,7 +273,7 @@
             this.groupBox1.Size = new System.Drawing.Size(638, 529);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Quote Information";
+            this.groupBox1.Text = "Please fill in the form below:";
             // 
             // errorLabel
             // 

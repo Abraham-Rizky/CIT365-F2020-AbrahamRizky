@@ -24,6 +24,7 @@ namespace MegaDesk_Abraham
         public decimal ShippingCost { get; set; }
         public decimal DrawerCost { get; set; }
         public decimal MaterialCost { get; set; }
+        public decimal Area { get; set; }
         public string Date { get; set; }
         public decimal OversizeCost { get; set; }
         public int minWidth { get {return MinWidth; } }
