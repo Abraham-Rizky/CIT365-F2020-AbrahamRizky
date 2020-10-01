@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +13,29 @@ namespace MegaDesk_Abraham
 {
     public partial class AddQuote : Form
     {
-        string baseCharge = "200";
-        
+       
         public AddQuote()
         {
+            Desk desk = new Desk();
+            DeskQuote deskquote = new DeskQuote();
             InitializeComponent();
             // Show today's date
             currentDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
-            baseChargePrice.Text = baseCharge;
         }
 
         private void returnToMainMenu_Click(object sender, EventArgs e)
         {
-            MainMenu mainMenu = (MainMenu)this.Tag;
-            mainMenu.Show();
-            Close();
+            /*
+                MainMenu mainMenu = (MainMenu)this.Tag;
+                mainMenu.Show();
+                Close();
+            */
+            MainMenu openMainMenu = new MainMenu();
+            openMainMenu.Tag = this;
+            openMainMenu.Show(this);
+            Hide();
         }
 
-        // Display customer's name in summary box
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            customerName.Text = customerNameBox.Text;
-        }
 
         // Check if customer's name is empty or null
         public void validateCustomer(string input)
@@ -264,6 +266,36 @@ namespace MegaDesk_Abraham
             //shippingBox.SelectedIndex = 0;
         }
 
+        public void viewQuoteButton_Click(object sender, EventArgs e)
+        {
+            DeskQuote quote = new DeskQuote();
+            Desk desk = new Desk();
+            // If Desk object is empty catch the exception
+            try
+            {
 
+                desk.Width = Convert.ToInt32(widthBox.Text);
+                desk.Depth = Convert.ToInt32(depthBox.Text);
+                desk.NumberOfDrawers = Convert.ToInt32(drawerBox.Text);
+                desk.SurfaceMaterial = (DesktopMaterial)materialBox.SelectedIndex - 1;
+                desk.CustomerName = customerNameBox.Text;
+                desk.ShippingCost = quote.CalcShipping(Convert.ToInt32(shippingBox.SelectedIndex));
+                desk.Date = quote.ShowDate();
+                desk.OversizeCost = quote.CalcOversizeCost(desk.Width, desk.Depth);
+                desk.DrawerCost = quote.CalcDrawerCost(desk.NumberOfDrawers);
+                desk.MaterialCost = quote.CalcMaterialCost(Convert.ToInt32(materialBox.SelectedIndex));
+
+                DisplayQuote openDisplayQuote = new DisplayQuote(desk);
+                openDisplayQuote.Tag = this;
+                openDisplayQuote.Show(this);
+                Hide();
+            }
+            catch
+            {
+                errorLabel.Text = "All fields must be filled!";
+            }
+
+
+        }
     }
 }
