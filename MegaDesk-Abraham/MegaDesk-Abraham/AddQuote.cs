@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace MegaDesk_Abraham
 {
@@ -173,11 +174,11 @@ namespace MegaDesk_Abraham
         public void validateDrawer(string input)
         {
             bool newInput = input.All(char.IsDigit);
-            if (newInput != true)
+            if (newInput != true || String.IsNullOrEmpty(input))
             {
                 errorLabel.Text = "Please enter a valid number using numeric button or choose one from dropdown menu!";
                 drawerBox.BackColor = Color.Tomato;
-                drawerBox.Text = "";
+                drawerBox.SelectedIndex = -1;
                 this.ActiveControl = drawerBox;
             }
             else
@@ -192,7 +193,7 @@ namespace MegaDesk_Abraham
                 {
                     errorLabel.Text = "Drawer has to be between 0 and 7!";
                     drawerBox.BackColor = Color.Tomato;
-                    drawerBox.Text = "";
+                    drawerBox.SelectedIndex = -1;
                     this.ActiveControl = drawerBox;
                 }
                 else
@@ -213,10 +214,9 @@ namespace MegaDesk_Abraham
         // Validate material
         public void validateMaterial(string input)
         {
-            if (materialBox.SelectedIndex < 0 || materialBox.SelectedIndex > 5 || materialBox.SelectedIndex == -1)
+            if (materialBox.SelectedIndex < 1 || materialBox.SelectedIndex > 5 || materialBox.SelectedIndex == -1 || String.IsNullOrEmpty(input))
             {
                 errorLabel.Text = "Please select one of the options below";
-                materialBox.SelectedIndex = 0;
                 materialBox.BackColor = Color.Tomato;
                 this.ActiveControl = materialBox;
             }
@@ -225,6 +225,7 @@ namespace MegaDesk_Abraham
                 materialBox.BackColor = default(Color);
                 errorLabel.Text = "";
             }
+
         }
         private void materialBox_Validating(object sender, CancelEventArgs e)
         {
@@ -238,10 +239,10 @@ namespace MegaDesk_Abraham
 
         public void validateShipping(string input)
         {
-            if (shippingBox.SelectedIndex < 0 || shippingBox.SelectedIndex > 3 || shippingBox.SelectedIndex == -1)
+            if (shippingBox.SelectedIndex < 1 || shippingBox.SelectedIndex > 3 || shippingBox.SelectedIndex == -1 || String.IsNullOrEmpty(input))
             {
                 errorLabel.Text = "Please select one of the options below";
-                shippingBox.SelectedIndex = 0;
+                shippingBox.SelectedIndex = -1;
                 shippingBox.BackColor = Color.Tomato;
                 this.ActiveControl = shippingBox;
             }
@@ -262,7 +263,7 @@ namespace MegaDesk_Abraham
         // Add default index value to material text box to show command to select
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            materialBox.SelectedIndex = 0;
+            materialBox.SelectedIndex = -1;
             //shippingBox.SelectedIndex = 0;
         }
 
@@ -285,15 +286,27 @@ namespace MegaDesk_Abraham
                 desk.DrawerCost = quote.CalcDrawerCost(desk.NumberOfDrawers);
                 desk.MaterialCost = quote.CalcMaterialCost(Convert.ToInt32(materialBox.SelectedIndex));
                 desk.Area = desk.Width * desk.Depth;
+                desk.MaterialNotEmpty = materialBox.SelectedIndex;
+                desk.ShippingNotEmpty = shippingBox.SelectedIndex;
 
-                DisplayQuote openDisplayQuote = new DisplayQuote(desk);
-                openDisplayQuote.Tag = this;
-                openDisplayQuote.Show(this);
-                Hide();
+                if (desk.MaterialNotEmpty == -1 || desk.ShippingNotEmpty == -1)
+                {
+                    errorLabel.Text = "Please make sure that all fields are filled or selected!";
+
+                }
+                else
+                {
+                    DisplayQuote openDisplayQuote = new DisplayQuote(desk);
+                    openDisplayQuote.Tag = this;
+                    openDisplayQuote.Show(this);
+                    Hide();
+                }
+
+
             }
             catch
             {
-                errorLabel.Text = "All fields must be filled!";
+                errorLabel.Text = "Please make sure that all fields are filled or selected!";
             }
 
 

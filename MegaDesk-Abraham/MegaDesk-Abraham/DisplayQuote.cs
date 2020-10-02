@@ -22,8 +22,8 @@ namespace MegaDesk_Abraham
             materialLabel.Text = Convert.ToString(desk.SurfaceMaterial);
             materialCostLabel.Text = "$ " + Convert.ToString(desk.MaterialCost);
             drawerCostLabel.Text = "$ " + Convert.ToString(desk.DrawerCost) + ".00";
-            shippingLabel.Text = "$ " + Convert.ToString(desk.ShippingCost) + ".00";
-            oversizeCostLabel.Text = "$ " + Convert.ToString(desk.OversizeCost) + ".00";
+            shippingLabel.Text = "$ " + Convert.ToString(desk.ShippingCost);
+            oversizeCostLabel.Text = "$ " + Convert.ToString(desk.OversizeCost + ".00");
             dateLabel.Text = desk.Date;
             totalPriceLabel.Text = "$ " + Convert.ToString(desk.OversizeCost + desk.basePrice + desk.DrawerCost + desk.ShippingCost + desk.MaterialCost);
             //dateLabel.Text = Convert.ToString (desk.Area);

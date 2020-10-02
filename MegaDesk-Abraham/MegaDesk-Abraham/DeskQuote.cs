@@ -17,10 +17,6 @@ namespace MegaDesk_Abraham
         public decimal totalPrice;
         public const decimal BASE_PRICE = 200.00M;
         public const int DRAWER_RATE = 50;
-        public Desk desk { get; set; }
-        public string CustomerName { get; set; }
-        public DateTime Date { get; set; }
-        public decimal TotalPrice { get; set; }
 
         public decimal CalcOversizeCost(decimal width, decimal depth)
         {
@@ -34,7 +30,7 @@ namespace MegaDesk_Abraham
             }
             else
             {
-                oversizeCost = 0.00M;
+                oversizeCost = 0;
                 return oversizeCost;
             }
         }
@@ -79,26 +75,26 @@ namespace MegaDesk_Abraham
             Desk desk = new Desk();
             area = width * depth;
             desk.Area = area;
+            
             if (index == 0)
             {
-                shippingCost = 0;
-                return desk.ShippingCost;
+                return desk.ShippingCost = 0.00M;
             }
             else if (index == 1)
             {
                 if(area < 1000)
                 {
-                    shippingCost = 60;
+                    shippingCost = 60.00M;
                     return desk.ShippingCost = shippingCost;
                 }
                 else if (area > 1000 && area < 2000)
                 {
-                    shippingCost = 70;
+                    shippingCost = 70.00M;
                     return desk.ShippingCost = shippingCost;
                 }
                 else
                 {
-                    shippingCost = 80;
+                    shippingCost = 80.00M;
                     return desk.ShippingCost = shippingCost;
                 }
             }
@@ -106,17 +102,17 @@ namespace MegaDesk_Abraham
             {
                 if (area < 1000)
                 {
-                    shippingCost = 40;
+                    shippingCost = 40.00M;
                     return desk.ShippingCost = shippingCost;
                 }
                 else if (area > 1000 && area < 2000)
                 {
-                    shippingCost = 50;
+                    shippingCost = 50.00M;
                     return desk.ShippingCost = shippingCost;
                 }
                 else
                 {
-                    shippingCost = 60;
+                    shippingCost = 60.00M;
                     return desk.ShippingCost = shippingCost;
                 }
             }
@@ -124,39 +120,25 @@ namespace MegaDesk_Abraham
             {
                 if (area < 1000)
                 {
-                    shippingCost = 30;
+                    shippingCost = 30.00M;
                     return desk.ShippingCost = shippingCost;
                 }
                 else if (area > 1000 && area < 2000)
                 {
-                    shippingCost = 35;
+                    shippingCost = 35.00M;
                     return desk.ShippingCost = shippingCost;
                 }
                 else
                 {
-                    shippingCost = 40;
+                    shippingCost = 40.00M;
                     return desk.ShippingCost = shippingCost;
                 }
             } else
             {
-                shippingCost = 0;
                 return desk.ShippingCost = shippingCost;
             }
         }
 
-
-        public decimal GetTotalPrice()
-        {
-            Desk desk = new Desk();
-            totalPrice = BASE_PRICE;
-            //totalPrice = desk.Depth;
-            totalPrice += desk.OversizeCost;
-            //totalPrice += CalcDrawerCost();
-            //totalPrice += materialCost;
-            //totalPrice += shippingCost;
-            desk.TotalPrice = totalPrice;
-            return desk.TotalPrice;
-        }
 
         public string ShowDate()
         {
