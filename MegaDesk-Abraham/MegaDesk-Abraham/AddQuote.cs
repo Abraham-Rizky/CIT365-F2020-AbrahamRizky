@@ -239,7 +239,7 @@ namespace MegaDesk_Abraham
 
         public void validateShipping(string input)
         {
-            if (shippingBox.SelectedIndex < 1 || shippingBox.SelectedIndex > 3 || shippingBox.SelectedIndex == -1 || String.IsNullOrEmpty(input))
+            if (shippingBox.SelectedIndex < 0 || shippingBox.SelectedIndex > 3 || shippingBox.SelectedIndex == -1 || String.IsNullOrEmpty(input))
             {
                 errorLabel.Text = "Please select one of the options below";
                 shippingBox.SelectedIndex = -1;
