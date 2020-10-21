@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace My_Scripture_Journal
+namespace MyScriptureJournal
 {
     public class Program
     {

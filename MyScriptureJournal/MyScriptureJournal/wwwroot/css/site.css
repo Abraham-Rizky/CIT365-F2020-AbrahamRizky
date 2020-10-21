@@ -29,7 +29,7 @@ body {
     margin: 15px;
 }
 
-.navbar{
+.navbar {
     background: url(../images/navbar.svg) no-repeat center;
     background-size: contain;
     background-position: left;
@@ -45,15 +45,16 @@ body {
     border-top: 0px;
 }
 
-.navbar-brand, .navbar-collapse ul li a {
-    color: black !important;
-    font-family: 'Lato', sans-serif;
-}
+    .navbar-brand, .navbar-collapse ul li a {
+        color: black !important;
+        font-family: 'Lato', sans-serif;
+    }
 
 .navbar-fixed-top {
     top: 0;
     border-width: 4px 0 4px;
 }
+
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
