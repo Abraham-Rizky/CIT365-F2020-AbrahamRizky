@@ -12,7 +12,7 @@ namespace MyScriptureJournal.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "My Scripture Journal.";
         }
     }
 }
