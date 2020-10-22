@@ -34,8 +34,9 @@ namespace MyScriptureJournal.Pages.Scriptures
         public async Task OnGetAsync(string sortOrder)
         {
             // using System 
-            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
+            //BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            BookSort = sortOrder == "Book" ? "book_desc" : "Book";
 
             IQueryable<Scripture> scriptureQuery = from s in _context.Scripture
                                                    select s;
@@ -62,6 +63,9 @@ namespace MyScriptureJournal.Pages.Scriptures
             switch (sortOrder)
             {
                 case "book_desc":
+                    scriptures = scriptures.OrderBy(s => s.Book);
+                    break;
+                case "Book":
                     scriptures = scriptures.OrderByDescending(s => s.Book);
                     break;
                 case "Date":

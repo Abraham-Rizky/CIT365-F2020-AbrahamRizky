@@ -20,6 +20,7 @@
         </select>
         &nbsp;Keyword: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
+        <a asp-page="./Index" asp-route-sortOrder="" asp-route-SearchString="" id="resetBtn"><input type="button" value="Reset"/></a>
     </p>
 </form>
 <table class="table">

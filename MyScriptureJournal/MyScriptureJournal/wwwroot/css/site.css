@@ -63,6 +63,18 @@ body {
     white-space: nowrap;
 }
 
+a{
+    color: black;
+}
+
+a:hover {
+    color: #01B6D1;
+}
+
+#resetBtn input:hover {
+    color: black;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
