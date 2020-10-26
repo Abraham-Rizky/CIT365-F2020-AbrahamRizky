@@ -11,7 +11,8 @@ namespace MyScriptureJournal.Models
     {
         public int ID { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]$")]
+        [RegularExpression(@"^([A-Za-z]{3,50}|([A-Za-z0-9]+\s[A-Za-z]+))$")]
+        [DataType(DataType.Text)]
         [StringLength(30)]
         [Required]
         public string Book { get; set; }
@@ -29,6 +30,7 @@ namespace MyScriptureJournal.Models
         public string Verse { get; set; }
         
         [Required]
+        [DataType(DataType.Text)]
         [StringLength(1000)]
         public string Notes { get; set; }
 

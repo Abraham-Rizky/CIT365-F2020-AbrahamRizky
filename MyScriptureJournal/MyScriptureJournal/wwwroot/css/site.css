@@ -29,6 +29,14 @@ body {
     margin: 15px;
 }
 
+#logo{
+    background: url(../images/logo.png) no-repeat center;
+    height: 100px;
+    width: auto;
+    background-size:contain;
+    margin-top: 15px;
+}
+
 .navbar {
     background: url(../images/navbar.svg) no-repeat center;
     background-size: contain;
@@ -71,8 +79,21 @@ a:hover {
     color: #01B6D1;
 }
 
-#resetBtn input:hover {
-    color: black;
+a.button {
+    color: #fff;
+    background-color: #d9534f;
+    border: 1px solid #d43f3a;
+    padding: 2px 7px;
+    text-decoration: none;
+}
+
+a.button:hover {
+    background-color: white;
+    color: #d9534f;
+}
+
+.sortLink {
+    color: #007da5;
 }
 
 /* Hide/rearrange for smaller screens */

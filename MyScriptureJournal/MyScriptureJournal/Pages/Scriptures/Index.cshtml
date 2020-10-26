@@ -6,12 +6,12 @@
 }
 
 <h2>
-    <i class="fa fa-home">&nbsp;Home</i>
+    <i class="material-icons">home</i>&nbsp;@ViewData["Title"]
 </h2>
 
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="sortLink">Add new note</a>
 </p>
 <form>
     <p>
@@ -19,15 +19,17 @@
             <option value="">All</option>
         </select>
         &nbsp;Keyword: <input type="text" asp-for="SearchString" />
+    </p>
+    <p>
         <input type="submit" value="Filter" />
-        <a asp-page="./Index" asp-route-sortOrder="" asp-route-SearchString="" id="resetBtn"><input type="button" value="Reset"/></a>
+        <a asp-page="./Index" asp-route-sortOrder="" asp-route-SearchString="" class="button">Reset</a>
     </p>
 </form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort" class="sortLink">
                     @Html.DisplayNameFor(model => model.Scripture[0].Book)
                 </a>
             </th>
@@ -41,7 +43,7 @@
                 @Html.DisplayNameFor(model => model.Scripture[0].Notes)
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" class="sortLink">
                     @Html.DisplayNameFor(model => model.Scripture[0].Date)
                 </a>
             </th>
