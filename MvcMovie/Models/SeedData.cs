@@ -23,38 +23,38 @@ namespace MvcMovie.Models
                 context.Movie.AddRange(
                     new Movie
                     {
-                        Title = "When Harry Met Sally",
-                        ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Genre = "Romantic Comedy",
-                        Rating = "R",
-                        Price = 7.99M
-                    },
-
-                    new Movie
-                    {
-                        Title = "Ghostbusters ",
-                        ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Genre = "Comedy",
+                        Title = "The RM",
+                        ReleaseDate = DateTime.Parse("2003-1-31"),
+                        Genre = "Family Comedy",
                         Rating = "PG",
-                        Price = 8.99M
+                        Price = 6.99M
                     },
 
                     new Movie
                     {
-                        Title = "Ghostbusters 2",
-                        ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Genre = "Comedy",
+                        Title = "The Errands of Angels ",
+                        ReleaseDate = DateTime.Parse("2008-1-1"),
+                        Genre = "Drama",
                         Rating = "PG",
-                        Price = 9.99M
+                        Price = 6.99M
                     },
 
                     new Movie
                     {
-                        Title = "Rio Bravo",
-                        ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Genre = "Western",
+                        Title = "One Man's Treasure",
+                        ReleaseDate = DateTime.Parse("2009-1-23"),
+                        Genre = "Adventure",
                         Rating = "PG",
                         Price = 3.99M
+                    },
+
+                    new Movie
+                    {
+                        Title = "Suits on the Loose",
+                        ReleaseDate = DateTime.Parse("2005-10-5"),
+                        Genre = "Comedy",
+                        Rating = "PG",
+                        Price = 5.99M
                     }
                 );
                 context.SaveChanges();
