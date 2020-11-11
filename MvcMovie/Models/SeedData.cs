@@ -28,7 +28,7 @@ namespace MvcMovie.Models
                         Genre = "Family Comedy",
                         Rating = "PG",
                         Price = 6.99M,
-                        ImagePath = null
+                        ImagePath = "theRM.jpg"
                     },
 
                     new Movie
@@ -38,7 +38,7 @@ namespace MvcMovie.Models
                         Genre = "Drama",
                         Rating = "PG",
                         Price = 6.99M,
-                        ImagePath = null
+                        ImagePath = "theErrandsOfAngels.jpg"
                     },
 
                     new Movie
@@ -48,7 +48,7 @@ namespace MvcMovie.Models
                         Genre = "Adventure",
                         Rating = "PG",
                         Price = 3.99M,
-                        ImagePath = null
+                        ImagePath = "oneMansTreasure.jpg"
                     },
 
                     new Movie
@@ -58,7 +58,7 @@ namespace MvcMovie.Models
                         Genre = "Comedy",
                         Rating = "PG",
                         Price = 5.99M,
-                        ImagePath = null
+                        ImagePath = "suitsOnTheLoose.jpg"
                     }
                 ); ;
                 context.SaveChanges();

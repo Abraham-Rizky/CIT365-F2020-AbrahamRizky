@@ -31,6 +31,7 @@ namespace MvcMovie.Models
         [Required]
         public string Rating { get; set; }
 
+        [Display(Name = "Image")]
         public string ImagePath { get; set; }
     }
 }

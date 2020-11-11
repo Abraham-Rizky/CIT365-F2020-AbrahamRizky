@@ -92,6 +92,10 @@ thead {
     background-color: #01B6D1;
     color: white;
 }
+
+.movieThumbnail{
+    height: 300px;
+}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

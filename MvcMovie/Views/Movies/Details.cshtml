@@ -40,6 +40,12 @@
         <dd>
             @Html.DisplayFor(model => model.Rating)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+        <dd>
+            <img src="~/images/@Html.DisplayFor(model => model.ImagePath)" class="img-thumbnail movieThumbnail"/>
+        </dd>
     </dl>
 </div>
 <div>
