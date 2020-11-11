@@ -172,6 +172,7 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
+                    movie.ImagePath = Request.Form["ImagePath"];
                     _context.Update(movie);
                     await _context.SaveChangesAsync();
                 }
