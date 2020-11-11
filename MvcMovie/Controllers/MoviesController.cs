@@ -27,6 +27,8 @@ namespace MvcMovie.Controllers
                                             orderby m.Genre
                                             select m.Genre;
 
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+
             var movies = from m in _context.Movie
                          select m;
 
@@ -42,7 +44,18 @@ namespace MvcMovie.Controllers
 
             if (!string.IsNullOrEmpty(sortOrder))
             {
-                movies = movies.OrderBy(m => Convert.ToDateTime( m.ReleaseDate) );
+                switch (sortOrder)
+                {
+                    case "Date":
+                        movies = movies.OrderBy(m => Convert.ToDateTime( m.ReleaseDate) );
+                        break;
+                    case "date_desc":
+                        movies = movies.OrderByDescending(m => Convert.ToDateTime( m.ReleaseDate) );
+                        break;
+                    default:
+                        movies = movies.OrderBy(m => m.Id);
+                        break;
+                }
             }
 
             var movieGenreVM = new MovieGenreViewModel
