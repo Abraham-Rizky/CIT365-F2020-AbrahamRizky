@@ -28,7 +28,9 @@
                 @Html.DisplayNameFor(model => model.Movies[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
+                <a asp-page="/Index" asp-route-sortOrder="date">
+                    @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Movies[0].Genre)

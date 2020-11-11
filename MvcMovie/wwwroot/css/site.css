@@ -4,6 +4,9 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
+    background: url(../images/main-page.jpg) no-repeat center;
+    background-size: cover;
+    background-position: center;
 }
 
 /* Wrapping element */
@@ -34,18 +37,27 @@ body {
 }
 
 a.navbar-brand {
-    color: #E00914 !important;
+    color: #01B6D1 !important;
 }
 
 h1, h2, h3, h4, h5, th, dt {
     font-family: 'DM Serif Display', serif;
 }
 
+.btn-danger {
+    background-color: #01B6D1 !important;
+    border-color: #01B6D1 !important;
+}
+
+    .btn-danger:hover {
+        background-color: #E50914 !important;
+    }
+
 #mainPage {
-    background: url(../images/main-page.jpg) no-repeat center;
+/*    background: url(../images/main-page.jpg) no-repeat center;
     background-size: contain;
-    background-position: center;
-    height: 80vh;
+    background-position: center;*/
+    height: 90vh;
     text-align: center;
     display: flex;
     justify-content: flex-start; /* align horizontal */
@@ -55,6 +67,16 @@ h1, h2, h3, h4, h5, th, dt {
 }
 #mainPage h1{
     margin-top: 100px;
+}
+
+.ctr {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+    color: white;
+}
+
+.body-content{
+    height: 100vh;
 }
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
