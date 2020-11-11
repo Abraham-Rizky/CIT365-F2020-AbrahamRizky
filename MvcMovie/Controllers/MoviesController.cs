@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +15,12 @@ namespace MvcMovie.Controllers
     public class MoviesController : Controller
     {
         private readonly MvcMovieContext _context;
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public MoviesController(MvcMovieContext context)
+        public MoviesController(MvcMovieContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            this.hostingEnvironment = hostingEnvironment;
         }
 
         // GET: Movies
@@ -105,11 +109,31 @@ namespace MvcMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Image")] MovieCreateViewModel movie)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(movie);
+                string uniqueFileName = null;
+                if (movie.Image != null)
+                {
+                    string uploadsFolder =  Path.Combine(hostingEnvironment.WebRootPath, "Images");
+                    uniqueFileName =  Guid.NewGuid().ToString().Length + "_" + movie.Image.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    movie.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+
+                Movie newMovie = new Movie
+                {
+                    Title = movie.Title,
+                    ReleaseDate = movie.ReleaseDate,
+                    Price = movie.Price,
+                    Genre = movie.Genre,
+                    Rating = movie.Rating,
+                    ImagePath = uniqueFileName
+                };
+
+                _context.Add(newMovie);
+                //_context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
