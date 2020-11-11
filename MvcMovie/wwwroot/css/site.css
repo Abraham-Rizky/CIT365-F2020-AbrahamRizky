@@ -78,6 +78,20 @@ h1, h2, h3, h4, h5, th, dt {
 .body-content{
     height: 100vh;
 }
+
+table {
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 5px 10px #CECECE;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(202,239,245, 0.5);
+}
+
+thead {
+    background-color: #01B6D1;
+    color: white;
+}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
