@@ -1,0 +1,124 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+#logo{
+    background: url(../images/logo.png) no-repeat center;
+    height: 100px;
+    width: auto;
+    background-size:contain;
+    margin-top: 15px;
+}
+
+.navbar {
+    background: url(../images/navbar.svg) no-repeat center;
+    background-size: contain;
+    background-position: left;
+}
+
+.navbar-inverse {
+    background-color: #FFFFFF;
+    border-color: #E7E9E9;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-collapse {
+    border-top: 0px;
+}
+
+.navbar-brand, .navbar-collapse ul li a {
+    color: black !important;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-brand:hover, .navbar-collapse ul li a:hover {
+    color: #007da5 !important;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 4px 0 4px;
+}
+
+.nowrap{
+    white-space: nowrap;
+}
+
+a{
+    color: black;
+}
+
+a:hover {
+    color: #01B6D1;
+}
+
+a.button {
+    color: #fff;
+    background-color: #d9534f;
+    border: 1px solid #d43f3a;
+    padding: 2px 7px;
+    text-decoration: none;
+}
+
+a.button:hover {
+    background-color: white;
+    color: #d9534f;
+}
+
+.sortLink {
+    color: #007da5;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+    .resetwrap{
+        white-space: normal;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: white;
+    }
+    
+    button.navbar-toggle {
+        background-color: #01B6D1;
+    }
+
+    .navbar-inverse .navbar-toggle:hover{
+        background-color: #333333;
+    }
+
+    .navbar-inverse .navbar-toggle:focus {
+        background-color: #01B6D1;
+    }
+}

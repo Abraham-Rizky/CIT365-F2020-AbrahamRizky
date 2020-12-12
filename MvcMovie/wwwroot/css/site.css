@@ -1,0 +1,105 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    background: url(../images/main-page.jpg) no-repeat center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.navbar {
+    font-family: 'DM Serif Display', serif;
+}
+
+a.navbar-brand {
+    color: #01B6D1 !important;
+}
+
+h1, h2, h3, h4, h5, th, dt {
+    font-family: 'DM Serif Display', serif;
+}
+
+.btn-danger {
+    background-color: #01B6D1 !important;
+    border-color: #01B6D1 !important;
+}
+
+    .btn-danger:hover {
+        background-color: #E50914 !important;
+    }
+
+#mainPage {
+/*    background: url(../images/main-page.jpg) no-repeat center;
+    background-size: contain;
+    background-position: center;*/
+    height: 90vh;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start; /* align horizontal */
+    align-items: center; /* align vertical */
+    flex-direction: column;
+    color: black;
+}
+#mainPage h1{
+    margin-top: 100px;
+}
+
+.ctr {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+    color: white;
+}
+
+.body-content{
+    height: 100vh;
+}
+
+table {
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 5px 10px #CECECE;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(202,239,245, 0.5);
+}
+
+thead {
+    background-color: #01B6D1;
+    color: white;
+}
+
+.movieThumbnail{
+    height: 300px;
+}
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
